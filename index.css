@@ -17,7 +17,7 @@ body{
   #header h1{
     text-transform:uppercase;
     font-weight:800;
-    color: #3e53a6;
+    color: #ffc300;
     margin-bottom: 0.85em;
   }
   
@@ -27,7 +27,7 @@ body{
   }
   
   thead{
-    background: #3e53a6;
+    background: #ffc300;
     color: #FFF;
     height: 50px;
     text-transform:uppercase;
@@ -35,7 +35,7 @@ body{
   }
   
   tfoot{
-    background: #3e53a6;
+    background: #ffc300;
     color: #FFF;
     height: 50px;
     text-transform:uppercase;
@@ -90,7 +90,7 @@ body{
   }
   
   #footer h3{
-    color: #3e53a6;
+    color: #ffc300;
     text-decoration:underline;
     font-weight: bold;
   }
