@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <title>index.html</title>
+</head>
+<body>
+   <div class="container" ng-app="myApp">
+  <div class="col-xs-12">
+    <div class="row text-center" id="header">
+      <h1>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Calculez votre moyenne générale S3!</br></h1>
+      <h5>Vous n'avez qu'à entrer vos notes dans les champs dédiés, les notes des modules et la moyenne générale sont calculés automagiquement :)</h5>
+    </div>
+    <div class="row">
+      <table id="outer" ng-controller="myController">
+        <!--Header Row-->
+        <thead class="table-header">
+          <tr>
+            <th class="text-center col-xs-2">Module</th>
+            <th class="text-center col-xs-2">Matières</th>
+            <th class="text-center col-xs-2">Note Matière</th>
+            <th class="text-center col-xs-2">Cofficient M</th>
+            <th class="text-center col-xs-2">Note Module</th>
+            <th class="text-center col-xs-2">Coefficient</th>
+          </tr>
+        </thead>
+
+        <!--Insider rows-->
+        <tbody>
+          <tr class="mainRow" ng-repeat="mod in Mods">
+            <!--Titre module-->
+            <td class="nomModule">{{mod.nom}}</td>
+            <!--Titres Matières-->
+            <td>
+              <table>
+                <tr ng-repeat="mat in mod.matieres">
+                  <td>{{mat.nom}}</td>              
+                </tr>
+              </table>
+            </td>
+            <!--Notes Matières-->
+            <td>
+              <table class="col-xs-12">
+                <tr ng-repeat="mat in mod.matieres">
+                  <td class="alter">
+                    <input class="no-spinners text-center" type="number" min="0" max="20" step="0.01" placeholder="{{mat.note}}" ng-model="mat.note"></input>
+                  </td>
+                </tr>
+              </table>
+            </td>
+   <!--coficient de mat Matières-->
+            <td>
+              <table class="col-xs-12">
+                <tr ng-repeat="mat in mod.matieres">
+                  <td class="alter">
+                    <input class="no-spinners text-center" type="number" min="0" max="10" step="0.01" placeholder="{{mat.cofe}}" ng-model="mat.cofe"></input>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <!--Moyenne du module-->
+            <td class="text-center">{{moyenne(mod)}}</td>
+            <!--Coeff Module-->
+            <td class="text-center">{{mod.coeff}}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" class="text-center">Moyenne Générale</td>
+            <td colspan="2" class="text-center">{{moyGen(Mods)}}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div> 
+<script src="index.js"></script>
+</body>
+</html>
