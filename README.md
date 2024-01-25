@@ -1,7 +1,4 @@
 # Student GPA Calculator
-
-![GPA Calculator](images/gpa_calculator.png)
-
 ## Overview
 This web project is designed to assist students in calculating their Grade Point Average (GPA) for the third semester (S3). It has been developed as part of my studies at the Ecole Supérieure de Technologie.
 
